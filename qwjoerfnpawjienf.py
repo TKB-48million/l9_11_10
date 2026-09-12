@@ -21,16 +21,16 @@ if st.session_state.q == 1:
         st.session_state.q = 2  # 次の問題へ
     if st.button("遊ばない"):
         st.session_state.message = "え、あ、わかった"
-        st.session_state.q = 5  # 次の問題へ
+        st.session_state.q = 9999  # 次の問題へ
 
 # 2問目
 elif st.session_state.q == 2:
     st.write("【利用規約読んだ？】")  # 問題文
     if st.button("読んだ"):
-        st.session_state.score += 1  # 正解
         st.session_state.message = "正解！っておもった？ないよ"
-        st.session_state.q = 3  
+        st.session_state.q = 99999  
     if st.button("読むわけがない"):
+        st.session_state.score += 1  # 正解
         st.session_state.message = "ないからあってるよ"
         st.session_state.q = 3  
 
@@ -42,6 +42,7 @@ elif st.session_state.q == 3:
         st.session_state.message = "ほんとに？まぁどっちにしろ先に進むけど"
         st.session_state.q = 4  # 終了画面へ
     if st.button("あってない"):
+        st.session_state.score += 1  # 正解
         st.session_state.message = "だよね"
         st.session_state.q = 4  # 終了画面へ
 
@@ -51,10 +52,28 @@ elif st.session_state.q == 4:
     if st.button("4個"):
         st.session_state.score += 1  # 正解
         st.session_state.message = "正解！"
-        st.session_state.q = 6  # 終了画面へ
+        st.session_state.q = 5  # 終了画面へ
     if st.button("5個"):
+        st.session_state.score += 1  # 正解
         st.session_state.message = "スペアタイヤを数える発想はなかった"
+        st.session_state.q = 5  # 終了画面へ
+
+
+elif st.session_state.q == 5:
+    st.write("???????????????")  # 問題文
+    if st.button("9"):
+        st.session_state.score += 1  # 正解
+        st.session_state.message = "正解！"
         st.session_state.q = 6  # 終了画面へ
+    if st.button("広瀬すず"):
+        st.session_state.score += 1  # 正解
+        st.session_state.message = "あ、そう？そんな頭悪いん笑？"
+        st.session_state.q = 9999  # 終了画面へ
+    if st.button("マンション"):
+        st.session_state.score += 1  # 正解                
+        st.session_state.message = "あ、そう？そんな頭悪いん笑？"            
+        st.session_state.q = 9999  # 終了画面へ
+        
 
 # 終了画面
 else:
