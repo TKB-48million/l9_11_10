@@ -13,6 +13,7 @@ if "message" not in st.session_state:
 if st.session_state.q == 1:
     st.write("～前提～ 遊ぶ？")
     if st.button("遊ぶ"):
+        st.session_state.message = "正解！"
         st.session_state.score += 0
         st.session_state.q = 2
     if st.button("遊ばない"):
@@ -20,7 +21,7 @@ if st.session_state.q == 1:
         st.session_state.q = 9999
 
 elif st.session_state.q == 2:
-    st.session_state.message = "正解！"
+    st.write(st.session_state.message)
     st.write("続けますか？")
     if st.button("はい"):
         st.session_state.q = 3
@@ -30,11 +31,12 @@ elif st.session_state.q == 3:
     if st.button("読んだ"):
         st.session_state.q = 9999
     if st.button("読むわけがない"):
+        st.session_state.message = "ないからあってるよ"
         st.session_state.score += 1
         st.session_state.q = 4
 
 elif st.session_state.q == 4:
-    st.session_state.message = "ないからあってるよ"
+    st.write(st.session_state.message)
     st.write("続けますか？")
     if st.button("はい"):
         st.session_state.q = 5
@@ -42,21 +44,22 @@ elif st.session_state.q == 4:
 elif st.session_state.q == 5:
     st.write("【ラスト】名前は藤本達也？")
     if st.button("あってる"):
+        st.session_state.message = "ほんとにそう？まあどっちみち続けるけど…":
         st.session_state.score += 1
         st.session_state.q = 123456789
     if st.button("あってない"):
         st.session_state.score += 1
-        st.session_state.message = "だよね"
+        st.session_state.message = "まぁそうだわな"
         st.session_state.q = 6
 
 elif st.session_state.q == 123456789:
-    st.session_state.message = "ほんとにそう？まあどっちみち続けるけど…"
+    st.write(st.session_state.message)
     st.write("続けますか？")
     if st.button("はい"):
         st.session_state.q = 7
 
 elif st.session_state.q == 6:
-    st.session_state.message = "まぁそうだわな"
+    st.write(st.session_state.message)
     st.write("続けますか？")
     if st.button("はい"):
         st.session_state.q = 7
@@ -64,21 +67,23 @@ elif st.session_state.q == 6:
 elif st.session_state.q == 7:
     st.write("【車にタイヤは何個ある？】")
     if st.button("4個"):
+        st.session_state.message = "特殊な車は考えない場合正解"
         st.session_state.score += 1
         st.session_state.q = 1234567890
     if st.button("5個"):
+        st.session_state.message = "スペアタイヤ入れるとはその発想はなかった"
         st.session_state.score += 1
         st.session_state.q = 8
 
 
 elif st.session_state.q == 1234567890:
-    st.session_state.message = "特殊な車は考えない場合正解"
+    st.write(st.session_state.message)
     st.write("続けますか？")
     if st.button("はい"):
         st.session_state.q = 9
 
 elif st.session_state.q == 8:
-    st.session_state.message = "スペアタイヤ入れるとはその発想はなかった"
+    st.write(st.session_state.message)
     st.write("続けますか？")
     if st.button("はい"):
         st.session_state.q = 9
@@ -86,6 +91,7 @@ elif st.session_state.q == 8:
 elif st.session_state.q == 9:
     st.write("???????????????")
     if st.button("9"):
+        st.session_state.message = "すごい！とか書きたいけど普通に三択だからね。別にすごくない"
         st.session_state.score += 1
         st.session_state.q = 10
     if st.button("広瀬すず"):
@@ -96,7 +102,7 @@ elif st.session_state.q == 9:
         st.session_state.q = 9999
 
 elif st.session_state.q == 10:
-    st.session_state.message = "すごい！とか書きたいけど普通に三択だからね。別にすごくない"
+    st.write(st.session_state.message)
     st.write("続けますか？")
     if st.button("はい"):
         st.session_state.q = 11
@@ -105,7 +111,7 @@ elif st.session_state.q == 11:
     st.write("???????????????")
     if st.button("天然水"):
         st.session_state.score += 1
-        st.session_state.message = "あ、そう？そんな頭悪いん笑？"
+        st.session_state.message = "2回連続でも11%ほどだからな"
         st.session_state.q = 12
     if st.button("WI-FIルーター"):
         st.session_state.message = "正解"
@@ -115,7 +121,7 @@ elif st.session_state.q == 11:
         st.session_state.q = 9999
 
 elif st.session_state.q == 12:
-    st.session_state.message = "2回連続でも11%ほどだからな"
+    st.write(st.session_state.message)
     st.write("続けますか？")
     if st.button("はい"):
         st.session_state.q = 13
