@@ -2,5 +2,6 @@ import streamlit as st
 
 st.title("ogfmpae")
 
-st.button("yes")
-st.button("no")
+st.header("このゲームを遊びますか?")
+
+st.selectbox("yes, no")
