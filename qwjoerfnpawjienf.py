@@ -14,25 +14,26 @@ if "message" not in st.session_state:
 
 # 1問目
 if st.session_state.q == 1:
-    st.write("【第1問】空はどっち")  # 問題文
-    if st.button("青い"):
+    st.write("～前提～  遊ぶ？")  # 問題文
+    if st.button("遊ぶ"):
         st.session_state.score += 1  # 正解
         st.session_state.message = "正解！"
         st.session_state.q = 2  # 次の問題へ
-    if st.button("赤い"):
-        st.session_state.message = "ちがうよ"
-        st.session_state.q = 2  # 次の問題へ
+    if st.button("遊ばない"):
+        st.session_state.message = "え、あ、わかった"
+        st.session_state.q = 3  # 次の問題へ
 
 # 2問目
 elif st.session_state.q == 2:
-    st.write("【第2問】ごはんを食べるのはどっち？")  # 問題文
-    if st.button("口"):
+    st.write("【利用規約読んだ？】")  # 問題文
+    if st.button("読んだ"):
         st.session_state.score += 1  # 正解
         st.session_state.message = "正解！"
         st.session_state.q = 3  # 終了画面へ
-    if st.button("耳"):
-        st.session_state.message = "ちがうよ"
+    if st.button("読むわけがない"):
+        st.session_state.message = ""
         st.session_state.q = 3  # 終了画面へ
+
 
 # 終了画面
 else:
