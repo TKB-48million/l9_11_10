@@ -21,7 +21,7 @@ if st.session_state.q == 1:
         st.session_state.q = 2  # 次の問題へ
     if st.button("遊ばない"):
         st.session_state.message = "え、あ、わかった"
-        st.session_state.q = 3  # 次の問題へ
+        st.session_state.q = 5  # 次の問題へ
 
 # 2問目
 elif st.session_state.q == 2:
@@ -38,11 +38,21 @@ elif st.session_state.q == 3:
     st.write("【ラスト】名前は藤本達也？")  # 問題文
     if st.button("あってる"):
         st.session_state.score += 1  # 正解
+        st.session_state.message = "ほんとに？まぁどっちにしろ先に進むけど"
+        st.session_state.q = 4  # 終了画面へ
+    if st.button("あってない"):
+        st.session_state.message = "だよね"
+        st.session_state.q = 4  # 終了画面へ
+
+elif st.session_state.q == 4:
+    st.write("【車にタイヤは何個ある？】")  # 問題文
+    if st.button("4個"):
+        st.session_state.score += 1  # 正解
         st.session_state.message = "正解！"
-        st.session_state.q = 4  # 終了画面へ
-    if st.button("あってない？"):
-        st.session_state.message = ""
-        st.session_state.q = 4  # 終了画面へ
+        st.session_state.q = 3  # 終了画面へ
+    if st.button("5個"):
+        st.session_state.message = "スペアタイヤを数える発想はなかった"
+        st.session_state.q = 3  # 終了画面へ
 
 # 終了画面
 else:
