@@ -16,7 +16,7 @@ if "message" not in st.session_state:
 if st.session_state.q == 1:
     st.write("～前提～  遊ぶ？")  # 問題文
     if st.button("遊ぶ"):
-        st.session_state.score += 1  # 正解
+        st.session_state.score += 0  # 正解
         st.session_state.message = "正解！"
         st.session_state.q = 2  # 次の問題へ
     if st.button("遊ばない"):
@@ -28,12 +28,21 @@ elif st.session_state.q == 2:
     st.write("【利用規約読んだ？】")  # 問題文
     if st.button("読んだ"):
         st.session_state.score += 1  # 正解
-        st.session_state.message = "正解！"
-        st.session_state.q = 3  # 終了画面へ
+        st.session_state.message = "正解！っておもった？ないよ"
+        st.session_state.q = 3  
     if st.button("読むわけがない"):
-        st.session_state.message = ""
-        st.session_state.q = 3  # 終了画面へ
+        st.session_state.message = "ないからあってるよ"
+        st.session_state.q = 3  
 
+elif st.session_state.q == 3:
+    st.write("【ラスト】名前は藤本達也？")  # 問題文
+    if st.button("あってる"):
+        st.session_state.score += 1  # 正解
+        st.session_state.message = "正解！"
+        st.session_state.q = 4  # 終了画面へ
+    if st.button("あってない？"):
+        st.session_state.message = ""
+        st.session_state.q = 4  # 終了画面へ
 
 # 終了画面
 else:
