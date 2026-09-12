@@ -44,7 +44,7 @@ elif st.session_state.q == 4:
 elif st.session_state.q == 5:
     st.write("【ラスト】名前は藤本達也？")
     if st.button("あってる"):
-        st.session_state.message = "ほんとにそう？まあどっちみち続けるけど…":
+        st.session_state.message = "ほんとにそう？まあどっちみち続けるけど…"
         st.session_state.score += 1
         st.session_state.q = 123456789
     if st.button("あってない"):
