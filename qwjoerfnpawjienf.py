@@ -71,12 +71,12 @@ elif st.session_state.q == 5:
         st.session_state.message = "あ、そう？そんな頭悪いん笑？"            
         st.session_state.q = 9999  
         
-elif st.session_state.q == 5:
+elif st.session_state.q == 6:
     st.write("???????????????")  
     if st.button("天然水"):
         st.session_state.score += 1 
         st.session_state.message = "あ、そう？そんな頭悪いん笑？"
-        st.session_state.q = 6 
+        st.session_state.q = 7 
     if st.button("WI-FIルーター"):
         st.session_state.score += 1  
         st.session_state.message = "正解"
